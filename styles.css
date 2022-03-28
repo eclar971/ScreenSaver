@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "TI logoso TFB";
+    src: url(TIlogosoTFB.ttf);
+}
+html{
+    font-family: "TI logoso TFB";
+    color-scheme: dark;
+}
+#block {
+    position: relative;
+    height: 59px;
+    width: 111px;
+    z-index: 1;
+}
+div{
+    text-align: center;
+    font-size: 60px;
+}
+#trail{
+    position: absolute;
+    background-color: red;
+    width: 2px;
+    height: 2px;
+    margin: 0px;
+}
+canvas{
+    position: absolute;
+}
