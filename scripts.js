@@ -42,7 +42,8 @@ setInterval(function () {
 		if (line) {
 			var myCanvasEl = document.getElementById("myCanvas");
 			var ctx = myCanvasEl.getContext("2d");
-			myCanvasEl.height / window.devicePixelRatio + "px";
+			myCanvasEl.style.height =
+				myCanvasEl.height / window.devicePixelRatio + "px";
 			myCanvasEl.style.width =
 				myCanvasEl.width / window.devicePixelRatio + "px";
 			ctx.moveTo(l + block.offsetWidth / 2, t + block.offsetHeight / 2);
