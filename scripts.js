@@ -140,16 +140,24 @@ window.addEventListener("keydown", function movement(obj) {
 		}
 	}
 	if (keys["ArrowRight"]) {
-		moveLeft += 1
+		if (moveLeft >= 0){
+			moveLeft += 1
+		}
 	}
 	if (keys["ArrowDown"]) {
-		moveUp -= 1
+		if (moveUp >= 0){
+			moveUp -= 1
+		}
 	}
 	if (keys["ArrowUp"]) {
-		moveUp += 1
+		if (moveUp >= 0){
+			moveUp += 1
+		}
 	}
 	if (keys["ArrowLeft"]) {
-		moveLeft -= 1
+		if (moveLeft >= 0){
+			moveLeft -= 1
+		}
 	}
 	if (keys[" "]) {
 		let color = getRandomColor();
