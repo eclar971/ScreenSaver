@@ -13,6 +13,8 @@ var moveUp = 1
 
 window.addEventListener("resize", function () {
 	var myCanvasEl = document.getElementById("myCanvas");
+	myCanvasEl.style.width = window.innerWidth
+	myCanvasEl.style.height = window.innerHeight
 	myCanvasEl.height = window.innerHeight - 16;
 	myCanvasEl.width = window.innerWidth - 16;
 });
@@ -192,6 +194,8 @@ document.addEventListener(
 );
 window.onload = function () {
 	var myCanvasEl = document.getElementById("myCanvas");
+	myCanvasEl.style.width = window.innerWidth
+	myCanvasEl.style.height = window.innerHeight
 	myCanvasEl.height = window.innerHeight - 16;
 	myCanvasEl.width = window.innerWidth - 16;
 };
