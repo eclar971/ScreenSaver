@@ -113,7 +113,7 @@ window.addEventListener("keydown", function movement(obj) {
 	t = blockTop;
 	var myCanvasEl = document.getElementById("myCanvas");
 	var ctx = myCanvasEl.getContext("2d");
-	if (line) {
+	if (line && !shift) {
 		myCanvasEl.style.width = window.innerWidth;
 		myCanvasEl.style.height = window.innerHeight;
 		ctx.moveTo(l + block.offsetWidth / 2, t + block.offsetHeight / 2);
@@ -186,7 +186,7 @@ window.addEventListener("keydown", function movement(obj) {
 	if (keys["c"]) {
 		lineColor = getRandomColor();
 	}
-	if (line) {
+	if (line && !shift) {
 		ctx.lineTo(
 			blockLeft + block.offsetWidth / 2,
 			blockTop + block.offsetHeight / 2
