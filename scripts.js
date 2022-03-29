@@ -8,14 +8,14 @@ var shift = false;
 var random = false;
 var cornerTouch = 0;
 var interval = 2;
-var moveLeft = 1
-var moveUp = 1
+var moveLeft = 1;
+var moveUp = 1;
 var lineColor = "red";
 
 window.addEventListener("resize", function () {
 	var myCanvasEl = document.getElementById("myCanvas");
-	myCanvasEl.style.width = window.innerWidth
-	myCanvasEl.style.height = window.innerHeight
+	myCanvasEl.style.width = window.innerWidth;
+	myCanvasEl.style.height = window.innerHeight;
 	myCanvasEl.height = window.innerHeight - 16;
 	myCanvasEl.width = window.innerWidth - 16;
 });
@@ -43,8 +43,8 @@ setInterval(function () {
 		if (line) {
 			var myCanvasEl = document.getElementById("myCanvas");
 			var ctx = myCanvasEl.getContext("2d");
-			myCanvasEl.style.width = window.innerWidth
-			myCanvasEl.style.height = window.innerHeight
+			myCanvasEl.style.width = window.innerWidth;
+			myCanvasEl.style.height = window.innerHeight;
 			ctx.moveTo(l + block.offsetWidth / 2, t + block.offsetHeight / 2);
 		}
 		if (left) {
@@ -54,8 +54,8 @@ setInterval(function () {
 			} else {
 				left = false;
 				block.style.color = getRandomColor();
-				if (random){
-					moveLeft = getRandomIntInclusive(1,5)
+				if (random) {
+					moveLeft = getRandomIntInclusive(1, 5);
 				}
 			}
 		}
@@ -66,8 +66,8 @@ setInterval(function () {
 			} else {
 				left = true;
 				block.style.color = getRandomColor();
-				if (random){
-					moveLeft = getRandomIntInclusive(1,5)
+				if (random) {
+					moveLeft = getRandomIntInclusive(1, 5);
 				}
 			}
 		}
@@ -78,20 +78,20 @@ setInterval(function () {
 			} else {
 				topp = false;
 				block.style.color = getRandomColor();
-				if (random){
-					moveUp = getRandomIntInclusive(1,5)
+				if (random) {
+					moveUp = getRandomIntInclusive(1, 5);
 				}
 			}
 		}
 		if (!topp) {
 			if (blockTop >= highest) {
-				blockTop -= moveUp
+				blockTop -= moveUp;
 				block.style.top = blockTop + "px";
 			} else {
 				topp = true;
 				block.style.color = getRandomColor();
-				if (random){
-					moveUp = getRandomIntInclusive(1,5)
+				if (random) {
+					moveUp = getRandomIntInclusive(1, 5);
 				}
 			}
 		}
@@ -113,9 +113,9 @@ window.addEventListener("keydown", function movement(obj) {
 	t = blockTop;
 	var myCanvasEl = document.getElementById("myCanvas");
 	var ctx = myCanvasEl.getContext("2d");
-	if (line){
-		myCanvasEl.style.width = window.innerWidth
-		myCanvasEl.style.height = window.innerHeight
+	if (line) {
+		myCanvasEl.style.width = window.innerWidth;
+		myCanvasEl.style.height = window.innerHeight;
 		ctx.moveTo(l + block.offsetWidth / 2, t + block.offsetHeight / 2);
 	}
 	if (keys["d"]) {
@@ -143,23 +143,19 @@ window.addEventListener("keydown", function movement(obj) {
 		}
 	}
 	if (keys["ArrowRight"]) {
-		if (moveLeft >= 0){
-			moveLeft += 1
-		}
+		moveLeft += 1;
 	}
 	if (keys["ArrowDown"]) {
-		if (moveUp >= 0){
-			moveUp -= 1
+		if (moveUp >= 1) {
+			moveUp -= 1;
 		}
 	}
 	if (keys["ArrowUp"]) {
-		if (moveUp >= 0){
-			moveUp += 1
-		}
+		moveUp += 1;
 	}
 	if (keys["ArrowLeft"]) {
-		if (moveLeft >= 0){
-			moveLeft -= 1
+		if (moveLeft >= 1) {
+			moveLeft -= 1;
 		}
 	}
 	if (keys[" "]) {
@@ -188,9 +184,9 @@ window.addEventListener("keydown", function movement(obj) {
 		}
 	}
 	if (keys["c"]) {
-		lineColor = getRandomColor()
+		lineColor = getRandomColor();
 	}
-	if (line){
+	if (line) {
 		ctx.lineTo(
 			blockLeft + block.offsetWidth / 2,
 			blockTop + block.offsetHeight / 2
@@ -209,8 +205,8 @@ document.addEventListener(
 );
 window.onload = function () {
 	var myCanvasEl = document.getElementById("myCanvas");
-	myCanvasEl.style.width = window.innerWidth
-	myCanvasEl.style.height = window.innerHeight
+	myCanvasEl.style.width = window.innerWidth;
+	myCanvasEl.style.height = window.innerHeight;
 	myCanvasEl.height = window.innerHeight - 16;
 	myCanvasEl.width = window.innerWidth - 16;
 };
