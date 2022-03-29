@@ -191,7 +191,7 @@ window.addEventListener("keydown", function movement(obj) {
 			blockLeft + block.offsetWidth / 2,
 			blockTop + block.offsetHeight / 2
 		);
-		ctx.strokeStyle = "red";
+		ctx.strokeStyle = lineColor;
 		ctx.stroke();
 	}
 });
