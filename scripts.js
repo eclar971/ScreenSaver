@@ -112,9 +112,11 @@ window.addEventListener("keydown", function movement(obj) {
 	t = blockTop;
 	var myCanvasEl = document.getElementById("myCanvas");
 	var ctx = myCanvasEl.getContext("2d");
-	myCanvasEl.style.width = window.innerWidth
-	myCanvasEl.style.height = window.innerHeight
-	ctx.moveTo(l + block.offsetWidth / 2, t + block.offsetHeight / 2);
+	if (line){
+		myCanvasEl.style.width = window.innerWidth
+		myCanvasEl.style.height = window.innerHeight
+		ctx.moveTo(l + block.offsetWidth / 2, t + block.offsetHeight / 2);
+	}
 	if (keys["d"]) {
 		if (blockLeft <= window.innerWidth - block.offsetWidth - 16) {
 			blockLeft += 5;
@@ -140,18 +142,22 @@ window.addEventListener("keydown", function movement(obj) {
 		}
 	}
 	if (keys["ArrowRight"]) {
-		moveLeft += 1
+		if (moveLeft >= 0){
+			moveLeft += 1
+		}
 	}
 	if (keys["ArrowDown"]) {
-		if (moveUp > 0){
+		if (moveUp >= 0){
 			moveUp -= 1
 		}
 	}
 	if (keys["ArrowUp"]) {
-		moveUp += 1
+		if (moveUp >= 0){
+			moveUp += 1
+		}
 	}
 	if (keys["ArrowLeft"]) {
-		if (moveLeft > 0){
+		if (moveLeft >= 0){
 			moveLeft -= 1
 		}
 	}
@@ -180,12 +186,14 @@ window.addEventListener("keydown", function movement(obj) {
 			random = false;
 		}
 	}
-	ctx.lineTo(
-		blockLeft + block.offsetWidth / 2,
-		blockTop + block.offsetHeight / 2
-	);
-	ctx.strokeStyle = "red";
-	ctx.stroke();
+	if (line){
+		ctx.lineTo(
+			blockLeft + block.offsetWidth / 2,
+			blockTop + block.offsetHeight / 2
+		);
+		ctx.strokeStyle = "red";
+		ctx.stroke();
+	}
 });
 document.addEventListener(
 	"keyup",
