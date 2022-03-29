@@ -10,6 +10,7 @@ var cornerTouch = 0;
 var interval = 2;
 var moveLeft = 1
 var moveUp = 1
+var lineColor = "red";
 
 window.addEventListener("resize", function () {
 	var myCanvasEl = document.getElementById("myCanvas");
@@ -99,7 +100,7 @@ setInterval(function () {
 				blockLeft + block.offsetWidth / 2,
 				blockTop + block.offsetHeight / 2
 			);
-			ctx.strokeStyle = "red";
+			ctx.strokeStyle = lineColor;
 			ctx.stroke();
 		}
 	}
@@ -185,6 +186,9 @@ window.addEventListener("keydown", function movement(obj) {
 		} else {
 			random = false;
 		}
+	}
+	if (keys["c"]) {
+		lineColor = getRandomColor()
 	}
 	if (line){
 		ctx.lineTo(
