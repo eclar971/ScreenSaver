@@ -140,22 +140,22 @@ window.addEventListener("keydown", function movement(obj) {
 		}
 	}
 	if (keys["ArrowRight"]) {
-		if (moveLeft >= 0){
+		if (moveLeft > 0){
 			moveLeft += 1
 		}
 	}
 	if (keys["ArrowDown"]) {
-		if (moveUp >= 0){
+		if (moveUp > 0){
 			moveUp -= 1
 		}
 	}
 	if (keys["ArrowUp"]) {
-		if (moveUp >= 0){
+		if (moveUp > 0){
 			moveUp += 1
 		}
 	}
 	if (keys["ArrowLeft"]) {
-		if (moveLeft >= 0){
+		if (moveLeft > 0){
 			moveLeft -= 1
 		}
 	}
