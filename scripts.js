@@ -113,11 +113,6 @@ window.addEventListener("keydown", function movement(obj) {
 	t = blockTop;
 	var myCanvasEl = document.getElementById("myCanvas");
 	var ctx = myCanvasEl.getContext("2d");
-	if (line && !shift) {
-		myCanvasEl.style.width = window.innerWidth;
-		myCanvasEl.style.height = window.innerHeight;
-		ctx.moveTo(l + block.offsetWidth / 2, t + block.offsetHeight / 2);
-	}
 	if (keys["d"]) {
 		if (blockLeft <= window.innerWidth - block.offsetWidth - 16) {
 			blockLeft += 5;
@@ -175,6 +170,11 @@ window.addEventListener("keydown", function movement(obj) {
 		} else {
 			line = false;
 		}
+	}
+	if (line && !shift && keys["l"]) {
+		myCanvasEl.style.width = window.innerWidth;
+		myCanvasEl.style.height = window.innerHeight;
+		ctx.moveTo(l + block.offsetWidth / 2, t + block.offsetHeight / 2);
 	}
 	if (keys["r"]) {
 		if (!random) {
