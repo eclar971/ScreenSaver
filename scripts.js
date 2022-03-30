@@ -43,6 +43,7 @@ setInterval(function () {
 		if (line) {
 			var myCanvasEl = document.getElementById("myCanvas");
 			var ctx = myCanvasEl.getContext("2d");
+			ctx.beginPath()
 			myCanvasEl.style.width = window.innerWidth;
 			myCanvasEl.style.height = window.innerHeight;
 			ctx.moveTo(l + block.offsetWidth / 2, t + block.offsetHeight / 2);
@@ -174,6 +175,7 @@ window.addEventListener("keydown", function movement(obj) {
 	if (line && !shift && keys["l"]) {
 		myCanvasEl.style.width = window.innerWidth;
 		myCanvasEl.style.height = window.innerHeight;
+		ctx.beginPath()
 		ctx.moveTo(l + block.offsetWidth / 2, t + block.offsetHeight / 2);
 	}
 	if (keys["r"]) {
