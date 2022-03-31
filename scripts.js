@@ -11,6 +11,9 @@ var interval = 2;
 var moveLeft = 1;
 var moveUp = 1;
 var lineColor = "red";
+var lineColorShift = false;
+var down = false;
+var first = true;
 
 window.addEventListener("resize", function () {
 	var myCanvasEl = document.getElementById("myCanvas");
@@ -19,6 +22,36 @@ window.addEventListener("resize", function () {
 	myCanvasEl.height = window.innerHeight - 16;
 	myCanvasEl.width = window.innerWidth - 16;
 });
+window.addEventListener("mousemove", function (event) {
+	if (first){
+		mousex = event.clientX;
+		mousey = event.clientY;
+		first = false
+	}
+	if (down){
+		if (mousex != event.clientX || mousey != event.clientY){
+			var myCanvasEl = document.getElementById("myCanvas");
+			var ctx = myCanvasEl.getContext("2d");
+			ctx.beginPath();
+			myCanvasEl.style.width = window.innerWidth;
+			myCanvasEl.style.height = window.innerHeight;
+			ctx.moveTo(mousex-5, mousey-5);
+			mousex = event.clientX;
+			mousey = event.clientY;
+			ctx.lineTo(mousex+1-5, mousey+1-5);
+			ctx.strokeStyle = lineColor;
+			ctx.stroke();
+		}
+	}else{
+		first = true
+	}
+});
+window.addEventListener("mousedown", function () {
+	down = true
+});
+window.addEventListener('mouseup', function(){
+	down = false
+})
 function getRandomIntInclusive(min, max) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
@@ -43,7 +76,7 @@ setInterval(function () {
 		if (line) {
 			var myCanvasEl = document.getElementById("myCanvas");
 			var ctx = myCanvasEl.getContext("2d");
-			ctx.beginPath()
+			ctx.beginPath();
 			myCanvasEl.style.width = window.innerWidth;
 			myCanvasEl.style.height = window.innerHeight;
 			ctx.moveTo(l + block.offsetWidth / 2, t + block.offsetHeight / 2);
@@ -54,7 +87,11 @@ setInterval(function () {
 				block.style.left = blockLeft + "px";
 			} else {
 				left = false;
-				block.style.color = getRandomColor();
+				color = getRandomColor();
+				block.style.color = color;
+				if (lineColorShift) {
+					lineColor = color;
+				}
 				if (random) {
 					moveLeft = getRandomIntInclusive(1, 5);
 				}
@@ -66,7 +103,11 @@ setInterval(function () {
 				block.style.left = blockLeft + "px";
 			} else {
 				left = true;
-				block.style.color = getRandomColor();
+				color = getRandomColor();
+				block.style.color = color;
+				if (lineColorShift) {
+					lineColor = color;
+				}
 				if (random) {
 					moveLeft = getRandomIntInclusive(1, 5);
 				}
@@ -78,7 +119,11 @@ setInterval(function () {
 				block.style.top = blockTop + "px";
 			} else {
 				topp = false;
-				block.style.color = getRandomColor();
+				color = getRandomColor();
+				block.style.color = color;
+				if (lineColorShift) {
+					lineColor = color;
+				}
 				if (random) {
 					moveUp = getRandomIntInclusive(1, 5);
 				}
@@ -90,7 +135,11 @@ setInterval(function () {
 				block.style.top = blockTop + "px";
 			} else {
 				topp = true;
-				block.style.color = getRandomColor();
+				color = getRandomColor();
+				block.style.color = color;
+				if (lineColorShift) {
+					lineColor = color;
+				}
 				if (random) {
 					moveUp = getRandomIntInclusive(1, 5);
 				}
@@ -165,6 +214,13 @@ window.addEventListener("keydown", function movement(obj) {
 			shift = false;
 		}
 	}
+	if (keys["]"]) {
+		if (!lineColorShift) {
+			lineColorShift = true;
+		} else {
+			lineColorShift = false;
+		}
+	}
 	if (keys["l"]) {
 		if (!line) {
 			line = true;
@@ -175,7 +231,7 @@ window.addEventListener("keydown", function movement(obj) {
 	if (line && !shift && keys["l"]) {
 		myCanvasEl.style.width = window.innerWidth;
 		myCanvasEl.style.height = window.innerHeight;
-		ctx.beginPath()
+		ctx.beginPath();
 		ctx.moveTo(l + block.offsetWidth / 2, t + block.offsetHeight / 2);
 	}
 	if (keys["r"]) {
