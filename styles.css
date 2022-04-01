@@ -11,6 +11,7 @@ html{
     height: 59px;
     width: 111px;
     z-index: 1;
+    top: 100px;
 }
 div{
     text-align: center;
@@ -25,4 +26,7 @@ div{
 }
 canvas{
     position: absolute;
+}
+img{
+    height: 0px;
 }

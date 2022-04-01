@@ -14,6 +14,8 @@ var lineColor = "red";
 var lineColorShift = false;
 var down = false;
 var first = true;
+var mouseColor;
+var pick = false
 
 window.addEventListener("resize", function () {
 	var myCanvasEl = document.getElementById("myCanvas");
@@ -39,7 +41,7 @@ window.addEventListener("mousemove", function (event) {
 			mousex = event.clientX;
 			mousey = event.clientY;
 			ctx.lineTo(mousex+1-5, mousey+1-5);
-			ctx.strokeStyle = lineColor;
+			ctx.strokeStyle = mouseColor;
 			ctx.stroke();
 		}
 	}else{
@@ -168,6 +170,20 @@ window.addEventListener("keydown", function movement(obj) {
 			blockLeft += 5;
 			block.style.left = blockLeft + "px";
 		}
+	}
+	if (keys["p"]) {
+		img = document.getElementById('colorWheel')
+		ctx.drawImage(img, 0, 0)
+		function picker(event){
+			mousex = event.clientX;
+			mousey = event.clientY;
+			data = ctx.getImageData(mousex, mousey, 1, 1).data
+			mouseColor = "rgb("+data[0]+", "+data[1]+", "+data[2]+")"
+			ctx.fillStyle ="#121212";
+			ctx.fillRect(0, 0, img.naturalWidth, img.naturalHeight);
+			window.removeEventListener('mousedown', picker)
+		}
+		window.addEventListener('mousedown', picker)
 	}
 	if (keys["w"]) {
 		if (blockTop >= -8) {
