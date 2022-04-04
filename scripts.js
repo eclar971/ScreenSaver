@@ -15,7 +15,8 @@ var lineColorShift = false;
 var down = false;
 var first = true;
 var mouseColor;
-var pick = false
+var pick = false;
+var strokeSize = 5;
 
 window.addEventListener("resize", function () {
 	var myCanvasEl = document.getElementById("myCanvas");
