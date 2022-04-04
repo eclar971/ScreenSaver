@@ -97,7 +97,7 @@ setInterval(function () {
 					lineColor = color;
 				}
 				if (random) {
-					moveLeft = getRandomIntInclusive(1, 5000);
+					moveLeft = getRandomIntInclusive(1, 500);
 				}
 			}
 		}
@@ -113,7 +113,7 @@ setInterval(function () {
 					lineColor = color;
 				}
 				if (random) {
-					moveLeft = getRandomIntInclusive(1, 5000);
+					moveLeft = getRandomIntInclusive(1, 500);
 				}
 			}
 		}
@@ -129,7 +129,7 @@ setInterval(function () {
 					lineColor = color;
 				}
 				if (random) {
-					moveUp = getRandomIntInclusive(1, 5000);
+					moveUp = getRandomIntInclusive(1, 500);
 				}
 			}
 		}
@@ -145,7 +145,7 @@ setInterval(function () {
 					lineColor = color;
 				}
 				if (random) {
-					moveUp = getRandomIntInclusive(1, 5000);
+					moveUp = getRandomIntInclusive(1, 500);
 				}
 			}
 		}
