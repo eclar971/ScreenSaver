@@ -26,6 +26,8 @@ div{
 }
 canvas{
     position: absolute;
+    background-color: #121212;
+    margin: 0px;
 }
 img{
     height: 0px;
