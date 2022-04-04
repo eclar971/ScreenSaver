@@ -16,7 +16,7 @@ var down = false;
 var first = true;
 var mouseColor;
 var pick = false;
-var strokeSize = 5;
+var strokeSize = 1;
 
 window.addEventListener("resize", function () {
 	var myCanvasEl = document.getElementById("myCanvas");
@@ -56,7 +56,7 @@ window.addEventListener("mousedown", function () {
 window.addEventListener('mouseup', function(){
 	down = false
 })
-function getRandomIntInclusive(min, max) {
+function getRandomIntInclusive(min,00 max) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
@@ -97,7 +97,7 @@ setInterval(function () {
 					lineColor = color;
 				}
 				if (random) {
-					moveLeft = getRandomIntInclusive(1, 5);
+					moveLeft = getRandomIntInclusive(1, 500);
 				}
 			}
 		}
@@ -113,7 +113,7 @@ setInterval(function () {
 					lineColor = color;
 				}
 				if (random) {
-					moveLeft = getRandomIntInclusive(1, 5);
+					moveLeft = getRandomIntInclusive(1, 500);
 				}
 			}
 		}
@@ -129,7 +129,7 @@ setInterval(function () {
 					lineColor = color;
 				}
 				if (random) {
-					moveUp = getRandomIntInclusive(1, 5);
+					moveUp = getRandomIntInclusive(1, 500);
 				}
 			}
 		}
@@ -145,7 +145,7 @@ setInterval(function () {
 					lineColor = color;
 				}
 				if (random) {
-					moveUp = getRandomIntInclusive(1, 5);
+					moveUp = getRandomIntInclusive(1, 500);
 				}
 			}
 		}
