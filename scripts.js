@@ -56,7 +56,7 @@ window.addEventListener("mousedown", function () {
 window.addEventListener('mouseup', function(){
 	down = false
 })
-function getRandomIntInclusive(min,00 max) {
+function getRandomIntInclusive(min, max) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
@@ -97,7 +97,7 @@ setInterval(function () {
 					lineColor = color;
 				}
 				if (random) {
-					moveLeft = getRandomIntInclusive(1, 500);
+					moveLeft = getRandomIntInclusive(1, 5000);
 				}
 			}
 		}
@@ -113,7 +113,7 @@ setInterval(function () {
 					lineColor = color;
 				}
 				if (random) {
-					moveLeft = getRandomIntInclusive(1, 500);
+					moveLeft = getRandomIntInclusive(1, 5000);
 				}
 			}
 		}
@@ -129,7 +129,7 @@ setInterval(function () {
 					lineColor = color;
 				}
 				if (random) {
-					moveUp = getRandomIntInclusive(1, 500);
+					moveUp = getRandomIntInclusive(1, 5000);
 				}
 			}
 		}
@@ -145,7 +145,7 @@ setInterval(function () {
 					lineColor = color;
 				}
 				if (random) {
-					moveUp = getRandomIntInclusive(1, 500);
+					moveUp = getRandomIntInclusive(1, 5000);
 				}
 			}
 		}
