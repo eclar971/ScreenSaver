@@ -42,6 +42,7 @@ window.addEventListener("mousemove", function (event) {
 			mousey = event.clientY;
 			ctx.lineTo(mousex+1-5, mousey+1-5);
 			ctx.strokeStyle = mouseColor;
+			ctx.lineWidth = strokeSize
 			ctx.stroke();
 		}
 	}else{
@@ -157,6 +158,13 @@ setInterval(function () {
 		}
 	}
 }, interval);
+window.addEventListener('wheel', function(event){
+	if (event.wheelDeltaY > 0){
+		strokeSize += 1
+	}else if (event.wheelDeltaY < 0 && strokeSize > 0){
+		strokeSize -= 1
+	}
+})
 window.addEventListener("keydown", function movement(obj) {
 	keys = keys || [];
 	keys[obj.key] = true;
