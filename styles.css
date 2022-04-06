@@ -3,10 +3,10 @@
     src: url(TIlogosoTFB.ttf);
 }
 html{
-    font-family: "TI logoso TFB";
     color-scheme: dark;
 }
 #block {
+    font-family: "TI logoso TFB";
     position: relative;
     height: 59px;
     width: 111px;
@@ -16,6 +16,9 @@ html{
 div{
     text-align: center;
     font-size: 60px;
+}
+body{
+    height: 0px;
 }
 #trail{
     position: absolute;
@@ -28,7 +31,16 @@ canvas{
     position: absolute;
     background-color: #121212;
     margin: 0px;
+    z-index: -1;
 }
 img{
     height: 0px;
+}
+#dropZone{
+    background-color: black;
+    width: 200px;
+    font-size: small;
+    font-family: 'Courier New', Courier, monospace;
+    float: right;
+    top: 0px;
 }
