@@ -27,31 +27,6 @@ window.addEventListener("resize", function () {
   myCanvasEl.height = window.innerHeight - 16;
   myCanvasEl.width = window.innerWidth - 16;
 });
-window.addEventListener("mousemove", function (event) {
-  if (first) {
-    mousex = event.clientX;
-    mousey = event.clientY;
-    first = false;
-  }
-  if (down) {
-    if (mousex != event.clientX || mousey != event.clientY) {
-      var myCanvasEl = document.getElementById("myCanvas");
-      var ctx = myCanvasEl.getContext("2d");
-      ctx.beginPath();
-      myCanvasEl.style.width = window.innerWidth;
-      myCanvasEl.style.height = window.innerHeight;
-      ctx.moveTo(mousex - 5, mousey - 5);
-      mousex = event.clientX;
-      mousey = event.clientY;
-      ctx.lineTo(mousex + 1 - 5, mousey + 1 - 5);
-      ctx.strokeStyle = mouseColor;
-      ctx.lineWidth = strokeSize;
-      ctx.stroke();
-    }
-  } else {
-    first = true;
-  }
-});
 window.addEventListener("dragenter", function (e) {
   e.preventDefault();
   document.getElementById("dropZone").style.backgroundColor = "red";
@@ -104,6 +79,32 @@ window.addEventListener("drop", function (ev) {
 });
 window.addEventListener("mousedown", function () {
   down = true;
+  function draw(event) {
+    if (first) {
+      mousex = event.clientX;
+      mousey = event.clientY;
+      first = false;
+    }
+    if (down) {
+      if (mousex != event.clientX || mousey != event.clientY) {
+        var myCanvasEl = document.getElementById("myCanvas");
+        var ctx = myCanvasEl.getContext("2d");
+        ctx.beginPath();
+        myCanvasEl.style.width = window.innerWidth;
+        myCanvasEl.style.height = window.innerHeight;
+        ctx.moveTo(mousex - 5, mousey - 5);
+        mousex = event.clientX;
+        mousey = event.clientY;
+        ctx.lineTo(mousex + 1 - 5, mousey + 1 - 5);
+        ctx.strokeStyle = mouseColor;
+        ctx.lineWidth = strokeSize;
+        ctx.stroke();
+      }
+    } else {
+      first = true;
+    }
+  }
+  window.addEventListener("mousemove", draw);
 });
 window.addEventListener("mouseup", function () {
   down = false;
