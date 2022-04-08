@@ -221,7 +221,7 @@ window.addEventListener("drop", function (ev) {
   img.onload = function () {
     ratio = img.width/img.height
     img.width = 250
-    img.height = 250*ratio
+    img.height = 250/ratio
     ctx.drawImage(img, 0, 0, img.width, img.height);
   };
   img.src = url;
