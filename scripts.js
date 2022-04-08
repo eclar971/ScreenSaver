@@ -298,7 +298,7 @@ window.addEventListener("keydown", function movement(obj) {
       mousex = event.clientX;
       mousey = event.clientY;
       pickerData = ctx.getImageData(mousex, mousey, 1, 1).data;
-      mouseColor = "rgb(" + data[0] + ", " + data[1] + ", " + data[2] + ")";
+      mouseColor = "rgb(" + pickerData[0] + ", " + pickerData[1] + ", " + pickerData[2] + ")";
       ctx.fillStyle = "#121212";
       ctx.fillRect(0, 0, img.naturalWidth, img.naturalHeight);
       window.removeEventListener("mousedown", picker);
